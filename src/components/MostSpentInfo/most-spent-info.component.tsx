@@ -14,9 +14,17 @@ const MostSpentInfo: React.FC = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [imgSrc, setImgSrc] = useState<string>('');
 
+    const getCompanyName = (companyName: string): string => {
+        switch (companyName) {
+            case 'H&M': return 'hm';
+            case 'Apple Retail': return 'apple';
+            default: return companyName
+        } 
+    }
+
     useEffect(() => {
         if (mostSpentPayload.company) {
-            getLogoByCompanyName(mostSpentPayload.company).then((res: LogoResponse) => {
+            getLogoByCompanyName(getCompanyName(mostSpentPayload.company)).then((res: LogoResponse) => {
                 setImgSrc(res.logo)
             }).catch((err) => {
                 console.error(err);

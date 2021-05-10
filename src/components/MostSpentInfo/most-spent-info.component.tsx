@@ -10,9 +10,7 @@ import ClipLoader from "react-spinners/ClipLoader";
 
 const MostSpentInfo: React.FC = () => {
     const history = useHistory();
-    const [mostSpentPayload, setMostSpentPayload] = useState<MostSpentPayload>({
-        company: 'Amazon'
-    } as MostSpentPayload);
+    const [mostSpentPayload, setMostSpentPayload] = useState<MostSpentPayload>({} as MostSpentPayload);
     const [isLoading, setIsLoading] = useState(false);
     const [imgSrc, setImgSrc] = useState<string>('');
 
